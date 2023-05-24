@@ -6,14 +6,9 @@ theBox.setAttribute('class', 'box');
 
 const theGrid = document.querySelector('#container');
 
-
 //create a flex row to add boxes to
 const theRow = document.createElement('div');
 theRow.setAttribute('class', 'flexRow');
-
-
-
-
 
 //loop to create 16 rows
 //populate each row with 16 boxes
@@ -47,8 +42,6 @@ items.forEach(item => {
     });
 });
 }
-
-
 
 //addeventlistener to button and event handler to trigger createGridfunction
 let reset = document.querySelector('#resize');

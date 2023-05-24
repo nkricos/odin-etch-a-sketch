@@ -2,14 +2,14 @@
 
 .box {
     flex: 1;
-    border-style: dotted;
-    border-width: 1px;
+    
     
 }
 
 #container {
     width: 480px;
     height: 480px;
+    border: solid;
     display: flex;
     flex-direction: column;
     
@@ -19,6 +19,5 @@
     width: auto;
     flex: 1;
     display: flex;
-    border-style: dashed;
-    border-width: 1px;
+    
 }

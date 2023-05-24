@@ -52,7 +52,10 @@ items.forEach(item => {
 //addeventlistener to button and event handler to trigger createGridfunction
 let reset = document.querySelector('#resize');
 reset.addEventListener("click", () => {
-    let gridSize = prompt("Please enter a grid size");
+    let gridSize;
+    do {
+        gridSize = prompt("Please enter a grid size", 0);
+    }while (gridSize && (gridSize < 1 || gridSize > 100));
     destroyGrid();
     createGrid(gridSize);
 });

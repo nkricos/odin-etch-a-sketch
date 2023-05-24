@@ -17,27 +17,43 @@ theRow.setAttribute('class', 'flexRow');
 
 //loop to create 16 rows
 //populate each row with 16 boxes
-function createGrid() {
-    for (let i = 0; i < 16; i++){
+function createGrid(gridsize = 16) {
+    for (let i = 0; i < gridsize; i++){
         theRow.appendChild(theBox.cloneNode(true));
     }
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < gridsize; i++) {
         theGrid.appendChild(theRow.cloneNode(true));
+    }
+    setGrid();
+}
+
+function destroyGrid() {
+    while (theGrid.firstChild) {
+        theGrid.removeChild(theGrid.firstChild);
+    }
+    while (theRow.firstChild) {
+        theRow.removeChild(theRow.firstChild);
     }
 }
 
 //add event listener for mouse hover of theBox
+function setGrid () {
 let items = document.querySelectorAll('.box');
 items.forEach(item => {
     item.addEventListener("mouseover", () => {
         item.style.backgroundColor = 'black';
     });
 });
+}
 
 //dynamically change backgroundColor of box on mouse hover
 
 //addeventlistener to button and event handler to trigger createGridfunction
 let reset = document.querySelector('#resize');
-reset.addEventListener("click", createGrid);
-//createGrid();
+reset.addEventListener("click", () => {
+    let gridSize = prompt("Please enter a grid size");
+    destroyGrid();
+    createGrid(gridSize);
+});
+createGrid();

@@ -17,10 +17,10 @@ theRow.setAttribute('class', 'flexRow');
 //loop to create four rows
 //populate each row with four boxes
 
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 16; i++){
     theRow.appendChild(theBox.cloneNode(true));
 }
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 16; i++) {
     theGrid.appendChild(theRow.cloneNode(true));
 }

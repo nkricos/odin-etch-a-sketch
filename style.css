@@ -1,13 +1,24 @@
 /* stylesheet for odin-etch-a-sketch */
 
 .box {
-    width: 25px;
-    height: 25px;
+    flex: 1;
     border-style: dotted;
+    border-width: 1px;
+    
+}
+
+#container {
+    width: 480px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
     
 }
 
 .flexRow {
+    width: auto;
+    flex: 1;
     display: flex;
     border-style: dashed;
+    border-width: 1px;
 }

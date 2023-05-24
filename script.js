@@ -1,2 +1,7 @@
 //js for odin-etch-a-sketch
-console.log("it works");
+
+//create a div box in javascript and display in div #container
+const theBox = document.createElement('div');
+theBox.setAttribute('id', 'box');
+const theGrid = document.querySelector('#container');
+theGrid.appendChild(theBox);

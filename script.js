@@ -42,21 +42,25 @@ function setGrid () {
 let items = document.querySelectorAll('.box');
 items.forEach(item => {
     item.addEventListener("mouseover", () => {
+        //dynamically change backgroundColor of box on mouse hover
         item.style.backgroundColor = 'black';
     });
 });
 }
 
-//dynamically change backgroundColor of box on mouse hover
+
 
 //addeventlistener to button and event handler to trigger createGridfunction
 let reset = document.querySelector('#resize');
 reset.addEventListener("click", () => {
-    let gridSize;
+    let gridSize = null;
     do {
-        gridSize = prompt("Please enter a grid size", 0);
+        gridSize = prompt("Please enter a grid size (1-100):", 0);
     }while (gridSize && (gridSize < 1 || gridSize > 100));
-    destroyGrid();
-    createGrid(gridSize);
+    if (gridSize != null) {
+        destroyGrid();
+        createGrid(gridSize);
+    };
+    
 });
 createGrid();

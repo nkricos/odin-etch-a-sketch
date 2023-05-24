@@ -14,8 +14,9 @@ theRow.setAttribute('class', 'flexRow');
 
 
 
-//loop to create four rows
-//populate each row with four boxes
+
+//loop to create 16 rows
+//populate each row with 16 boxes
 
 for (let i = 0; i < 16; i++){
     theRow.appendChild(theBox.cloneNode(true));
@@ -24,3 +25,14 @@ for (let i = 0; i < 16; i++){
 for (let i = 0; i < 16; i++) {
     theGrid.appendChild(theRow.cloneNode(true));
 }
+
+
+//add event listener for mouse hover of theBox
+let items = document.querySelectorAll('.box');
+items.forEach(item => {
+    item.addEventListener("mouseover", () => {
+        item.style.backgroundColor = 'black';
+    });
+});
+
+//dynamically change backgroundColor of box on mouse hover

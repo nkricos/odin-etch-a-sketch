@@ -41,9 +41,10 @@ function newColor () {
 
 function increaseBlack (currentColor) {
     let newColor = currentColor.replace('rgb(', '').replace(')', '').split(",");
-    console.log(newColor);
+    let tempColor;
     for (let i = 0; i < 3; i++) {
-        newColor[i] = Math.max((parseInt(newColor[i]) - 25.5), 0);
+        tempColor = parseInt(newColor[i]);
+        newColor[i] = Math.max((tempColor - 25.5), 0);
     }
     return boxColor = 'rgb(' + newColor[0] + ',' + newColor[1] + ',' + newColor[2] +')';
 }
@@ -59,7 +60,6 @@ function setGrid () {
             }else {
                 item.style.backgroundColor = increaseBlack(item.style.backgroundColor);
             }
-            
         });
     });
 }
@@ -69,7 +69,7 @@ let reset = document.querySelector('#resize');
 reset.addEventListener("click", () => {
     let gridSize = null;
     do {
-        gridSize = prompt("Please enter a grid size (1-100):", 0);
+        gridSize = prompt("Please enter a canvas size (1-100):", 0);
     }while (gridSize && (gridSize < 1 || gridSize > 100));
     if (gridSize != null) {
         destroyGrid();

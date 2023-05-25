@@ -36,10 +36,17 @@ function newColor () {
     let red = Math.floor(Math.random() * 255);
     let blue = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
-    let boxColor = 'rgb(' + red + ',' + blue + ',' + green +')';
-    return boxColor;
+    return boxColor = 'rgb(' + red + ',' + blue + ',' + green +')';
 }
-let boxColor;
+
+function increaseBlack (currentColor) {
+    let newColor = currentColor.replace('rgb(', '').replace(')', '').split(",");
+    console.log(newColor);
+    for (let i = 0; i < 3; i++) {
+        newColor[i] = Math.max((parseInt(newColor[i]) - 25.5), 0);
+    }
+    return boxColor = 'rgb(' + newColor[0] + ',' + newColor[1] + ',' + newColor[2] +')';
+}
 
 //add event listener for mouse hover of theBox
 function setGrid () {
@@ -47,7 +54,12 @@ function setGrid () {
     items.forEach(item => {
         item.addEventListener("mouseover", () => {
             //dynamically change backgroundColor of box on mouse hover
-            item.style.backgroundColor = newColor();
+            if (!item.style.backgroundColor) {
+                item.style.backgroundColor = newColor();
+            }else {
+                item.style.backgroundColor = increaseBlack(item.style.backgroundColor);
+            }
+            
         });
     });
 }

@@ -65,8 +65,8 @@ function setGrid () {
 }
 
 //addeventlistener to button and event handler to trigger createGridfunction
-let reset = document.querySelector('#resize');
-reset.addEventListener("click", () => {
+let resize = document.querySelector('#resize');
+resize.addEventListener("click", () => {
     let gridSize = null;
     do {
         gridSize = prompt("Please enter a canvas size (1-100):", 0);
@@ -76,4 +76,16 @@ reset.addEventListener("click", () => {
         createGrid(gridSize);
     }; 
 });
+
+//addeventlistener to button to reset image on grid at current size grid
+let reset = document.querySelector('#reset');
+reset.addEventListener("click", () => {
+    let currentRows = document.getElementById("container");
+    let gridSize = currentRows.childNodes.length;
+    if (gridSize != null) {
+        destroyGrid();
+        createGrid(gridSize);
+    }; 
+});
+
 createGrid();

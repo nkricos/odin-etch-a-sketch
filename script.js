@@ -32,15 +32,24 @@ function destroyGrid() {
     }
 }
 
+function newColor () {
+    let red = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let boxColor = 'rgb(' + red + ',' + blue + ',' + green +')';
+    return boxColor;
+}
+let boxColor;
+
 //add event listener for mouse hover of theBox
 function setGrid () {
-let items = document.querySelectorAll('.box');
-items.forEach(item => {
-    item.addEventListener("mouseover", () => {
-        //dynamically change backgroundColor of box on mouse hover
-        item.style.backgroundColor = 'black';
+    let items = document.querySelectorAll('.box');
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            //dynamically change backgroundColor of box on mouse hover
+            item.style.backgroundColor = newColor();
+        });
     });
-});
 }
 
 //addeventlistener to button and event handler to trigger createGridfunction
@@ -53,7 +62,6 @@ reset.addEventListener("click", () => {
     if (gridSize != null) {
         destroyGrid();
         createGrid(gridSize);
-    };
-    
+    }; 
 });
 createGrid();
